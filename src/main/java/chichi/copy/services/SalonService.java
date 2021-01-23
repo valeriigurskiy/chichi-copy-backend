@@ -33,4 +33,9 @@ public class SalonService implements ISalonService {
     public void removeSalon(int id) {
         salonDao.deleteById(id);
     }
+
+    @Override
+    public List<Salon> getSalonsByType(String type) {
+        return salonDao.getSalonsByType(type);
+    }
 }

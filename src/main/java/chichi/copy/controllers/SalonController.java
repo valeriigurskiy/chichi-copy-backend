@@ -31,4 +31,9 @@ public class SalonController {
         return salonService.addSalon(salon);
     }
 
+    @GetMapping(value = "/type/{type}")
+    public List<Salon> getSalonsByType(@PathVariable String type) {
+        return salonService.getSalonsByType(type);
+    }
+
 }

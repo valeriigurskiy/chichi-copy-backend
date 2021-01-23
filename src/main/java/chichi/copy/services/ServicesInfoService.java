@@ -8,6 +8,7 @@ import chichi.copy.services.interfaces.IServicesInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
 
@@ -31,7 +32,9 @@ public class ServicesInfoService implements IServicesInfoService {
 
     @Override
     public ServiceInfo getService(int id) {
-        return servicesInfoDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
+        ServiceInfo info = servicesInfoDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
+        byte[] name = Base64.getDecoder().decode(info.getName());
+        return new ServiceInfo(info.getId(), new String(name, StandardCharsets.UTF_8), info.getType(), info.getPrice(), info.getSalon(), info.getDuration());
     }
 
     @Override

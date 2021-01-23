@@ -32,4 +32,6 @@ public class Salon {
     private String instagram;
     @Column(nullable = false)
     private String type;
+    @Column(nullable = false)
+    private String image;
 }

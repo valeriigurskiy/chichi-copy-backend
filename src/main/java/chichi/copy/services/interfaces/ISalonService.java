@@ -17,4 +17,6 @@ public interface ISalonService {
 
     void removeSalon(int id);
 
+    List<Salon> getSalonsByType(String type);
+
 }
