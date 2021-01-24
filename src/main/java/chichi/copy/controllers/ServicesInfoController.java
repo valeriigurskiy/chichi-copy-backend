@@ -38,4 +38,9 @@ public class ServicesInfoController {
         return servicesInfoService.addService(service);
     }
 
+    @GetMapping(value = "/salon/{id}")
+    public List<ServiceInfo> getServiceInfoBySalonId(@PathVariable int id){
+        return servicesInfoService.getServiceInfoBySalonId(id);
+    }
+
 }

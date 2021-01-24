@@ -19,10 +19,10 @@ public class ServicesInfoService implements IServicesInfoService {
 
     @Override
     public ServiceInfo addService(ServiceInfo servicesInfo) {
-        String name = Base64.getEncoder().encodeToString(servicesInfo.getName().getBytes());
-        ServiceInfo info = new ServiceInfo(servicesInfo.getId(), name, servicesInfo.getType(),
-                servicesInfo.getPrice(), servicesInfo.getSalon(), servicesInfo.getDuration());
-        return servicesInfoDao.save(info);
+//        String name = Base64.getEncoder().encodeToString(servicesInfo.getName().getBytes());
+//        ServiceInfo info = new ServiceInfo(servicesInfo.getId(), name, servicesInfo.getType(),
+//                servicesInfo.getPrice(), servicesInfo.getSalon(), servicesInfo.getDuration());
+        return servicesInfoDao.save(servicesInfo);
     }
 
     @Override
@@ -32,13 +32,19 @@ public class ServicesInfoService implements IServicesInfoService {
 
     @Override
     public ServiceInfo getService(int id) {
-        ServiceInfo info = servicesInfoDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
-        byte[] name = Base64.getDecoder().decode(info.getName());
-        return new ServiceInfo(info.getId(), new String(name, StandardCharsets.UTF_8), info.getType(), info.getPrice(), info.getSalon(), info.getDuration());
+//        ServiceInfo info = servicesInfoDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
+//        byte[] name = Base64.getDecoder().decode(info.getName());
+//        return new ServiceInfo(info.getId(), new String(name, StandardCharsets.UTF_8), info.getType(), info.getPrice(), info.getSalon(), info.getDuration());
+        return servicesInfoDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
     }
 
     @Override
     public void removeService(int id) {
         servicesInfoDao.deleteById(id);
+    }
+
+    @Override
+    public List<ServiceInfo> getServiceInfoBySalonId(int id) {
+        return servicesInfoDao.getServiceInfoBySalonId(id);
     }
 }

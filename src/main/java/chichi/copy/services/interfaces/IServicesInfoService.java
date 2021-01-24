@@ -15,4 +15,6 @@ public interface IServicesInfoService {
 
     void removeService(int id);
 
+    List<ServiceInfo> getServiceInfoBySalonId(int id);
+
 }
