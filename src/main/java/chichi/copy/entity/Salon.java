@@ -19,7 +19,7 @@ public class Salon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false)
-    private String title;
+    private String name;
     @Column(nullable = false, length = 512)
     private String description;
     @Column(nullable = false)
