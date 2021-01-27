@@ -1,6 +1,7 @@
 package chichi.copy.controllers;
 
 import chichi.copy.entity.Salon;
+import chichi.copy.services.MailSender;
 import chichi.copy.services.SalonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ import java.util.Optional;
 public class SalonController {
     @Autowired
     private SalonService salonService;
+
+    @Autowired
+    private MailSender mailSender;
 
     @GetMapping()
     public List<Salon> getAll() {
