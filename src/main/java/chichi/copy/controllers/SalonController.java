@@ -39,5 +39,4 @@ public class SalonController {
     public List<Salon> getSalonsByType(@PathVariable String type) {
         return salonService.getSalonsByType(type);
     }
-
 }

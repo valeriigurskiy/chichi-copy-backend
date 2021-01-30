@@ -13,7 +13,7 @@ public class UserController {
     private MailSender mailSender;
 
     @GetMapping(value = "/user/{email}")
-    public int test(@PathVariable String email){
+    public int generateToken(@PathVariable String email){
         int num = (int) (Math.random()*(999999-100000))+100000;
         mailSender.send(email, "Activate your account", "Activation code: " + num);
         return num;
